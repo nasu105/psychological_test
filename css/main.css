@@ -1,0 +1,80 @@
+/*header設定*/
+#header{
+  position: relative;/*h1の中央寄せ配置の起点とするためのrelative*/
+  height: 100vh;/*高さを全画面にあわせる*/
+} 
+
+#video-area{
+  position: fixed;
+  z-index: -1;/*最背面に設定*/
+  top: 0;
+  right:0;
+  left:0;
+  bottom:0;
+  overflow: hidden;
+}
+
+#video {
+  /*天地中央配置*/
+  position: absolute;
+  display: block;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*縦横幅指定*/
+  width: 177.77777778vh; /* 16:9 の幅→16 ÷ 9＝ 177.77% */
+  height: 56.25vw; /* 16:9の幅 → 9 ÷ 16 = 56.25% */
+  min-height: 100%;
+  min-width: 100%;
+}
+
+/*見出し設定*/
+.description h1{
+  /*要素の配置*/
+  position:absolute;
+  /*要素を天地中央寄せ*/
+  top: 20%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  /*見た目の調整*/
+  color:#fbfaf5;
+  text-shadow: 0 0 15px #666;
+}
+
+/*説明文設定*/
+.description p{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  color: #fbfaf5;
+  font-size: 18px;
+
+}
+
+/* 注意書き設定 */
+.attention { 
+  color: brown;
+  font-size: medium;
+  position: absolute;
+  top: 90%;
+  left: 80%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+/* 始めるボタンの設定 */
+.button{
+  color: #fbfaf5;
+  font-size: medium;
+  position: absolute;
+  top: 60%;
+  left: 48%;
+}
+
+/* カーソルを合わせると色が変わる */
+.button:hover{
+  color: firebrick;
+  font-size: 2ex;
+  font-weight: bold;
+}

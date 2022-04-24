@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>真実の館</title>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+
+  <div class="description">
+    <h1>真実の館</h1>
+    <p>~あなたの隠された深層心理を暴いていきます~</p>
+  </div>
+  <div class="attention">
+    <p>※この心理テストを使った事による友人関係、恋人関係、家族関係の変化には一切責任を持てません</p>
+  </div>
+
+  <div id="video-area">
+    <video id="video" webkit-playsinline playsinline muted autoplay loop>
+      <!--
+      webkit-playsinline：iOS 9までのSafari用インライン再生指定
+      playsinline：iOS 10以降のSafari用インライン再生指定
+      muted：音声をミュートさせる
+      autoplay：動画を自動再生させる
+      loop：動画をループさせる
+      controls：コントロールバーを表示する
+      -->
+      <source src="video/pexels-cottonbro-5435293.mp4" type="video/mp4">
+    </video>
+
+  </div>
+  <div class="start">
+    <a href="game.html" class="button">始める</a>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <script>
+    $('#start').on(click,function(){
+
+    });
+
+
+  </script>
+
+</body>
+
+</html>

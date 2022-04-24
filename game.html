@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心理テスト</title>
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+
+    <div class="game_background"></div>
+    <div class="qizbox"> 
+        <p id="count"></p>
+        <p id="question"></p>
+        <ul class="answers">
+            <li><button id="answer00"></button></li>
+            <li><button id="answer01"></button></li>
+            <li><button id="answer02"></button></li>
+            <li><button id="answer03"></button></li>
+        </ul>  
+        <p id="what_qiz"></p>
+        <p id="result"></p>
+        <p id="result_discription"></p>
+    </div>
+            
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        const quiz = [
+            {
+                question:'父の日にネクタイをプレゼントすることになりました。どんなネクタイをあげますか？',
+                answers:['A.華やかな色と柄で派手なネクタイ','B.落ち着いた色とさりげない模様のネクタイ','C.紺、茶色、グレーなど落ち着いた色の無地のネクタイ','D.白に近い淡い色の清潔感があるネクタイ'],
+                quizsection:'※あなたの対人ブラック度がわかります※',
+                comparison:['A.腹黒度80％　その優しさは自分のとくのため','B.腹黒度50％　ソツがない代わり情もない冷血人間','C.自分の他は全員いなくなってもいい。腹の中は暗黒世界','D.腹黒度0％　嘘が大嫌いで投げる球は直球'],
+                correct:['派手なネクタイのAを選んだあなたは、「若々しく元気でいてね」と願う気持ち、裏返しには「病気で迷惑をかけないで」といったさりげなく相手を利用する腹黒さが隠されています。マイルドにブラック。','おとなしい柄のネクタイのBを選んだあなたは、あなたの「ソツのなさ」を表しています。他人と積極的に関わるよりもソツなく立ち回り、迷惑を被りそうなときには逃げるタイプといえるでしょう。腹黒というより冷血。','無地のネクタイのCを選んだあなたは、頑固で疑い深いタイプ。腹の中は「絶対自分の意見が正しい」など黒い言葉が渦巻いているかも。一度全部吐き出してスッキリしましょう。','白に近い淡い色のDを選んだあなたは、ウソをつくのも、つかれるのもニガテ。全部直球で真相がわかるまで追いかけ回すその様子を腹黒い人たちはひそかに憧れているかも。'],
+            },
+            {
+                question:'あなたは世界的なテニスプレーヤーで、得意技はサーブ。どんなサーブを打ちますか？',
+                answers:['A.サービスラインぎりぎりを狙いうつ','B.力強くて、球のスピードが速い','C.有名コーチ直伝のテクニカル・ショット','D.スピードは遅いが途中で曲がる変化球'],
+                quizsecttion:'※あなたの恋敵の蹴落とし方がわかります※',
+                comparison:['A.情報操作は得意技。手段を選ばず卑怯な手も使う','B.撃退法は正面突破。思い切りよく当たって砕けろ','C.恋敵の友人知人にうまく取り入ってまわりから攻略！','うそをついて恋敵の動揺を誘う心理戦の上級者'],
+                correct:['ラインギリギリを狙うAを選んだあなたは、計算高い人。恋敵の不利な情報を集めて相手には出どころがわからないように流したりと、ライバルの評価を下げて自分をよくみせるという手法をとりがち。','パワーで押すBを選んだあなたは、何事もストレート勝負。恋の駆け引きなんて面倒だし、好きになったら一直線に告白するはず。恋敵に対しても正々堂々と聞いて確認するわかりやすいタイプといえるでしょう。','有名コーチから教わるCを選んだあなたは、正攻法なんて信じず周りから固めていく戦略家。恋敵の周りの人たちに取り入って自分の味方につけ、じわりじわりと恋の成就に向けて動いていきます。','変化球を使うDを選んだあなたは、心理戦の上級者。わざと恋敵に聞こえるように嘘をついたり、好きな人の前で元気のないふりをして心配してもらおうとすることも朝飯前。腹黒い手を使っても、好きな人は手に入れる。'],                
+            },
+            {
+                question:'あなたは南の島でダイビングをしています。目の前に、ある生物があらわれました。実は猛毒を持つ、その生物はどれですか？',
+                answers:['A.クラゲ','B.タコ','C.フグ','イソギンチャク'],
+                quizsection:'※あなたの支配欲・独占欲がわかります※',
+                comparison:['A.相手の全てを集中に置きたい！支配欲は無限大','B.頭脳派のあなたは理詰めで束縛。支配欲ほぼMAX','C.独占や支配とは無縁な癒し系。支配欲まるでなし','D.何かを守るときは反撃する場合も。支配欲は中程度'],
+                correct:['人を数分で死亡させてしまうAのクラゲを選んだあなたの支配欲・独占欲は無限大。邪魔する相手は容赦なく攻撃し、力で支配する傾向にあります。反射的に攻撃せずひと呼吸おいてみましょう。','Bのタコを選んだあなたは、寒中生物のなかでも頭脳派。猛毒と知性を持ち合わせ、相手を追い詰めていきます。自分のテリトリーにシビアで支配欲・独占欲もかなり強いはず。','Cのフグを選んだあなたは、支配欲・独占欲とは無縁。フグは数ミリグラムで致死量となる毒を持ち合わせていますが、フグのほうから攻撃することはほぼありません。しかも、食べられてしまうのであればどちらかといえば誰かに独占されたいという願望があるのかも','Dのイソギンチャクを選んだあなたの独占欲・支配欲は人並み。青酸カリの八千倍という猛毒を持つイソギンチャクはよほどの理由がない限り、攻撃することはありませんがあなたの大切な何かに危害が及ぶと猛反撃に出ます。'],
+            },
+        ];
+        // 結果記録用の配列を用意
+        const results = [];
+        const counts = [];
+        // 問題文の表示
+        $('#question').text(quiz[results.length].question);
+        // 選択肢の表示
+        $('#answer00').text(quiz[results.length].answers[0]);
+        $('#answer01').text(quiz[results.length].answers[1]);
+        $('#answer02').text(quiz[results.length].answers[2]);
+        $('#answer03').text(quiz[results.length].answers[3]);
+        // 第問題目を表示
+        $('#count').text('第' + (results.length + 1) + '問');
+        // valuseの設定
+        $('#answer00').val(0);
+        $('#answer01').val(1);
+        $('#answer02').val(2);
+        $('#answer03').val(3);
+
+        // ボタンを押すと何のクイズかわかる
+        $('button').on('click',function(e){
+           $('#what_qiz').text(quiz[results.length].quizsection);
+        // 選択肢と回答の結びつけ
+            console.log(quiz[results.length].comparison.answers.value);
+            if(Number(e.target.value) === quiz[results.length].comparison,quiz[results.length].correct){ 
+                $('#result').text(quiz[results.lenght].comparison === Number(e.target.value));
+                $('#result_discription').text(quiz[results.length].correct);
+            } else {
+                console.log('hallo');
+            }
+        });
+    </script>
+</body>
+</html>

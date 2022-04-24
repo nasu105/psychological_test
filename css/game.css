@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+/* 背景画像の調整 */
+.game_background{
+    position: relative;
+    background-image: url(../photo/lost-places-1549096.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100Vh;
+}
+.game_background::before{
+    content: '';
+    display: block;
+    padding-top: 50%;
+}
+.qizbox{
+    position: absolute;
+    width: 100%;
+    bottom: 0; 
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    color: #fff;
+}
+li {
+  list-style: none;
+}
