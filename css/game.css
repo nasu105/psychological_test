@@ -1,4 +1,5 @@
 body{
+    width: 100%;
     margin: 0;
     padding: 0;
 }
@@ -19,6 +20,7 @@ body{
 .qizbox{
     position: absolute;
     width: 100%;
+    text-align: center;
     bottom: 0; 
     height: 100%;
     background-color: rgba(0,0,0,0.3);
@@ -26,4 +28,35 @@ body{
 }
 li {
   list-style: none;
+}
+
+button{
+    font-size: 16px;
+    margin-bottom: 10px;
+    outline: none;
+    background: none;
+    color: #fff;
+    text-align: left;
+    display: inline-block;
+}
+
+button:hover{
+    color: firebrick;
+    font-weight: bold;
+}
+
+#result_discription{
+    text-align: left;
+}
+.what_qiz{
+    color: firebrick;
+}
+
+.next{
+  font-size: 24px;
+  text-decoration: underline;
+}
+.next:hover{
+    color: firebrick;
+    font-weight: bold;
 }

@@ -33,15 +33,22 @@
     </video>
 
   </div>
-  <div class="start">
-    <a href="game.html" class="button">始める</a>
+  <div>
+    <p id="start" class="button">始める</p>
   </div>
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   <script>
-    $('#start').on(click,function(){
+    const my_audio = new Audio("music/和太鼓でドン.mp3")
+    $('#start').on('click', function () {
+      console.log('hello');
+      my_audio.currentTime = 0; //再生位置を先頭に戻す
+      my_audio.play(); //サウンドを再生
+      setTimeout(function () {
+        window.location.href = 'game.html';
+      }, 500);
 
     });
 
